@@ -5,6 +5,6 @@ for flavour in flavours:
         continue
     if flavour == "Discontinued":
         break
-    print("Discontinued item found")
+    print(f"{flavour} item found")
     
 print(f"Out side of loop")
