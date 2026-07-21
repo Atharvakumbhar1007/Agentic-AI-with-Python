@@ -18,5 +18,5 @@ print(pour_chai(3))
 
 chai_types = ["light", "kadak", "ginger", "kadak"]
 
-strong_chai = list(filter(lambda chai: chai == "kadak", chai_types))
+strong_chai = list(filter(lambda chai: chai != "kadak", chai_types))
 print(strong_chai)
