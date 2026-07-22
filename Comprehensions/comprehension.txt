@@ -1,0 +1,316 @@
+## Comprehension in Python
+
+**Comprehension** is a concise way to create new 
+collections (lists, dictionaries, sets, or generators) 
+from existing iterables. It makes code shorter, cleaner,
+ and often easier to read than traditional `for` loops.
+
+### Types of Comprehension in Python
+
+1. List Comprehension
+2. Dictionary Comprehension
+3. Set Comprehension
+4. Generator Comprehension (Generator Expression)
+
+---
+
+## 1. List Comprehension
+
+Used to create a new list from an existing iterable.
+
+### Syntax
+
+```python
+new_list = [expression for item in iterable]
+```
+
+### Example 1: Squares of Numbers
+
+```python
+numbers = [1, 2, 3, 4, 5]
+
+squares = [num ** 2 for num in numbers]
+
+print(squares)
+```
+
+**Output**
+
+```
+[1, 4, 9, 16, 25]
+```
+
+### Equivalent Using a Loop
+
+```python
+numbers = [1, 2, 3, 4, 5]
+
+squares = []
+
+for num in numbers:
+    squares.append(num ** 2)
+
+print(squares)
+```
+
+---
+
+## 2. List Comprehension with Condition
+
+### Syntax
+
+```python
+new_list = [expression for item in iterable if condition]
+```
+
+### Example: Even Numbers
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+even = [num for num in numbers if num % 2 == 0]
+
+print(even)
+```
+
+**Output**
+
+```
+[2, 4, 6]
+```
+
+---
+
+## 3. List Comprehension with if-else
+
+### Syntax
+
+```python
+new_list = [expression_if_true if condition else expression_if_false for item in iterable]
+```
+
+### Example
+
+```python
+numbers = [1, 2, 3, 4, 5]
+
+result = ["Even" if num % 2 == 0 else "Odd" for num in numbers]
+
+print(result)
+```
+
+**Output**
+
+```
+['Odd', 'Even', 'Odd', 'Even', 'Odd']
+```
+
+---
+
+## 4. Nested List Comprehension
+
+### Example: Multiplication Table
+
+```python
+table = [[i * j for j in range(1, 6)] for i in range(1, 6)]
+
+print(table)
+```
+
+**Output**
+
+```
+[
+ [1, 2, 3, 4, 5],
+ [2, 4, 6, 8, 10],
+ [3, 6, 9, 12, 15],
+ [4, 8, 12, 16, 20],
+ [5, 10, 15, 20, 25]
+]
+```
+
+---
+
+# Dictionary Comprehension
+
+Creates dictionaries efficiently.
+
+### Syntax
+
+```python
+new_dict = {key: value for item in iterable}
+```
+
+### Example
+
+```python
+numbers = [1, 2, 3, 4]
+
+square_dict = {num: num ** 2 for num in numbers}
+
+print(square_dict)
+```
+
+**Output**
+
+```
+{1: 1, 2: 4, 3: 9, 4: 16}
+```
+
+### With Condition
+
+```python
+numbers = [1, 2, 3, 4, 5]
+
+even_square = {num: num ** 2 for num in numbers if num % 2 == 0}
+
+print(even_square)
+```
+
+**Output**
+
+```
+{2: 4, 4: 16}
+```
+
+---
+
+# Set Comprehension
+
+Creates sets while automatically removing duplicates.
+
+### Syntax
+
+```python
+new_set = {expression for item in iterable}
+```
+
+### Example
+
+```python
+numbers = [1, 2, 2, 3, 4, 4, 5]
+
+unique = {num for num in numbers}
+
+print(unique)
+```
+
+**Output**
+
+```
+{1, 2, 3, 4, 5}
+```
+
+---
+
+# Generator Comprehension (Generator Expression)
+
+Generates values one at a time, making it memory efficient.
+
+### Syntax
+
+```python
+generator = (expression for item in iterable)
+```
+
+### Example
+
+```python
+numbers = [1, 2, 3, 4]
+
+gen = (num ** 2 for num in numbers)
+
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen))
+```
+
+**Output**
+
+```
+1
+4
+9
+16
+```
+
+---
+
+# Comparison: Loop vs Comprehension
+
+### Using Loop
+
+```python
+numbers = [1, 2, 3, 4]
+
+result = []
+
+for num in numbers:
+    result.append(num * 2)
+
+print(result)
+```
+
+### Using Comprehension
+
+```python
+numbers = [1, 2, 3, 4]
+
+result = [num * 2 for num in numbers]
+
+print(result)
+```
+
+Both produce:
+
+```
+[2, 4, 6, 8]
+```
+
+---
+
+# Advantages of Comprehension
+
+* Shorter and cleaner code.
+* Easier to read for simple transformations.
+* Often faster than using explicit `for` loops.
+* Reduces the need for temporary variables.
+* Supports filtering (`if`) and conditional expressions (`if-else`).
+
+---
+
+# Summary Table
+
+| Type                     | Syntax                                 | Output        |
+| ------------------------ | -------------------------------------- | ------------- |
+| List Comprehension       | `[exp for x in iterable]`              | List          |
+| List with Condition      | `[exp for x in iterable if condition]` | Filtered List |
+| Dictionary Comprehension | `{k: v for x in iterable}`             | Dictionary    |
+| Set Comprehension        | `{exp for x in iterable}`              | Set           |
+| Generator Comprehension  | `(exp for x in iterable)`              | Generator     |
+
+### Example of all four together
+
+```python
+nums = [1, 2, 3, 4, 5]
+
+# List
+squares = [n ** 2 for n in nums]
+
+# Dictionary
+square_dict = {n: n ** 2 for n in nums}
+
+# Set
+even_set = {n for n in nums if n % 2 == 0}
+
+# Generator
+square_gen = (n ** 2 for n in nums)
+
+print(squares)
+print(square_dict)
+print(even_set)
+print(list(square_gen))
+```
+
+This demonstrates the four main comprehension techniques available in Python.
