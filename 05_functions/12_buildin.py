@@ -3,7 +3,7 @@ def chai_flavor(flavor="masala"):
     chai="ginger"
     return flavor
 
-print(chai_flavor.__doc__)
+print(chai_flavor.__doc__) #__doc__ this is called as dunder
 print(chai_flavor.__name__)
 
 help(len)
