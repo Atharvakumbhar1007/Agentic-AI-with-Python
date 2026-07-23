@@ -20,4 +20,7 @@ def get_chai_gen():
     
 chai = get_chai_gen()
 print(next(chai))
+print(next(chai))
+print(next(chai))
+#print(next(chai)) gives errors
     
