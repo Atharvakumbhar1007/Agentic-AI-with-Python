@@ -8,3 +8,4 @@ def chai_customer():
 stall = chai_customer()
 next(stall) #start the generator
 stall.send("Masala Chai")
+stall.send("Lemon Chai")
