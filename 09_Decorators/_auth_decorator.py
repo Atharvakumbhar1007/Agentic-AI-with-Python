@@ -7,9 +7,14 @@ def require_admin(func):
             print("Access denied: Admins only")
         else:
             return func(user_role)
-        return wrapper
-def acess_tea_inventory(role):
+
+    return wrapper
+
+
+@require_admin
+def access_tea_inventory(role):
     print("Access granted to tea inventory")
-    
-acess_tea_inventory("user")
-acess_tea_inventory("admin")
+
+
+access_tea_inventory("user")
+access_tea_inventory("admin")
