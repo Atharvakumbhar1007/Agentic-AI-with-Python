@@ -4,6 +4,11 @@ def infinite_chai():
         yield f"Refil #{count}"
         count += 1
 refill = infinite_chai()
+user2 = infinite_chai()
     
 for _ in range(3):
-    print(next(refill6))
+    print(next(refill))
+    
+for _ in range(5):
+    print(next(user2))
+
