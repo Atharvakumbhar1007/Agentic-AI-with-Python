@@ -1,8 +1,15 @@
 import asyncio
 
-async def brew_chai():
-    print("Brwing Chai...")
+async def brew(name):
+    print(f"Brewing {name}...")
     await asyncio.sleep(2)
-    print("Chai is ready")
-    
-asyncio.run(brew_chai())
+    print(f"{name} is ready...")
+
+async def main():
+    await asyncio.gather(
+        brew("Masala Chai"),
+        brew("Green Tea"),
+        brew("Ginger Chai"),
+    )
+
+asyncio.run(main())
